@@ -50,6 +50,9 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     EncoderTorreta.setPositionOffset(Units.degreesToRotations(DutyCycleEncoderOffSet)); 
+
+    //Permite cruzar la linea de 180 de PID, permitiendo que logre angulos de 360
+    pid.enableContinuousInput(-180,180);
   }
   
   //Función que regresa la posición de la torreta, para no tener que declarar "turretPosition" en cada modo del robot
